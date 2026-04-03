@@ -4,7 +4,7 @@ This is my home page! My name is Jamil Elfar and I am a transfer student at [Cal
 
 ## Computer Science Projects
 
-My GitHub page is http://github.com/jamil5150.
+My GitHub page is https://github.com/jamil5150.
 
 ### CPSC 120
 
