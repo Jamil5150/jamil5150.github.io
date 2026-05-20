@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamil - Computer Engineering</title>
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --surface: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #64b5f6;
+            --border: #2a2a2a;
+            --muted: #888;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .tagline { color: var(--accent); font-size: 1.05rem; margin-bottom: 2rem; }
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--accent);
+        }
+        p { margin-bottom: 1rem; color: #ccc; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .project {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.3s;
+    overflow: hidden;
+}
+.project::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 37, 84, 0.15),
+        rgba(255, 130, 0, 0.1),
+        rgba(0, 61, 122, 0.15),
+        rgba(255, 130, 0, 0.08) 
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+    pointer-events: none;
+}
+
+       .project:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        inset 0 0 40px rgba(0, 37, 84, 0.25),
+        inset 0 0 80px rgba(255, 130, 0, 0.1),
+        0 4px 20px rgba(0, 0, 0, 0.3);
+}
+        .project:hover::after {opacity: 1; animation: innerGlow 3s ease infinite;}
+        @keyframes innerGlow {0%, 100% { opacity: 0.6; } 50% { opacity: 1; }}
+        .project h3,
+        .project p,
+        .project .links {position: relative; z-index: 1;}
+        .project .links a { margin-right: 1rem; }
+        .now-list { list-style: none; padding: 0; }
+        .now-list li { padding: 0.3rem 0; color: #bbb; }
+        .now-list li::before { content: "→ "; color: var(--accent); }
+        .footer { margin-top: 3rem; font-size: 0.82rem; color: var(--muted); }
+        .footer a { color: var(--muted); }
+        @media (max-width: 500px) {
+            .container { padding: 2rem 1rem; }
+            h1 { font-size: 1.8rem; }
+        }
+        html { scroll-behavior: smooth; }
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jamil Elfar</h1>
+        <p class="muted">Computer Engineering student at CSUF.</p>
+
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Titan Office Hours</h3>
+            <p>A searchable database of CSUF faculty office hours with CLI, web, and mobile interfaces. Supports cross-department search and name searching, similar to the advanced search used when enrolling for classes. Built with C++, SQLite, and basic HTML/CSS.</p>
+            <div class="links">
+                <a href="https://jamil5150.github.io/titan-office-hours/" target="_blank" rel="noopener noreferrer">Live site</a>
+                <a href="https://github.com/jamil5150/titan-office-hours" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
+        </div>
+
+        <h2>Now</h2>
+        <ul class="now-list">
+            <li>Waiting for IRB approval on a food waste research project</li>
+            <li>Learning computer architecture through emulator projects</li>
+        </ul>
+
+        <h2>Links</h2>
+        <p>
+            <a href="https://github.com/jamil5150" target="_blank">GitHub</a> &nbsp;·&nbsp;
+            <a href="https://linkedin.com/in/jamile5150" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+            <a href="mailto:jelfar@csu.fullerton.edu">Email</a>
+        </p>
+    </div>
+    <a href="#" class="back-to-top" id="backToTop" title="Back to top">↑</a>
+
+<script>
+    // Show/hide back-to-top button on scroll
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 300);
+    });
+</script>
+</body>
+</html>
